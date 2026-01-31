@@ -1,0 +1,28 @@
+{
+  "name": "snake-cli",
+  "version": "1.0.0",
+  "description": "Convert strings to snake_case",
+  "main": "dist/index.js",
+  "bin": {
+    "snake": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tagty/snake-cli.git"
+  },
+  "keywords": ["snake_case", "cli", "converter"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tagty/snake-cli/issues"
+  },
+  "homepage": "https://github.com/tagty/snake-cli#readme",
+  "devDependencies": {
+    "@types/node": "^25.1.0",
+    "typescript": "^5.9.3"
+  }
+}
