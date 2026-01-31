@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import { execSync } from 'child_process';
+
 function toSnakeCase(input: string): string {
   return input
     // キャメルケース・パスカルケースの境界にアンダースコアを挿入
@@ -30,6 +32,17 @@ Examples:
   snake "API Response-Code" → api_response_code`);
 }
 
+function copyToClipboard(text: string): void {
+  const platform = process.platform;
+  if (platform === 'darwin') {
+    execSync('pbcopy', { input: text });
+  } else if (platform === 'linux') {
+    execSync('xclip -selection clipboard', { input: text });
+  } else if (platform === 'win32') {
+    execSync('clip', { input: text });
+  }
+}
+
 function main(): void {
   const args = process.argv.slice(2);
 
@@ -41,6 +54,7 @@ function main(): void {
   const input = args.join(' ');
   const result = toSnakeCase(input);
   console.log(result);
+  copyToClipboard(result);
 }
 
 main();
